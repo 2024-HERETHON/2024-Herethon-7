@@ -10,7 +10,7 @@ from .forms import SignUpForm, LoginForm
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST, request.FILES)
-        checkpwd = request.POST.get('checkpwd')
+        checkpwd = request.POST.get('password_check')
 
         if form.is_valid():
             password = form.cleaned_data.get('password')

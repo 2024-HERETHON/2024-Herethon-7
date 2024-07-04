@@ -9,7 +9,7 @@
     <title>Beewalk</title>
 </head>
 <body>
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" id="signupForm">
         {% csrf_token %}
         
         <div class="photo">
@@ -25,7 +25,6 @@
             </div>
             <div class="email_input">
                 {{ form.email }}
-                <button type="button" id="email_check">중복확인</button>
             </div>
         </div>
         
@@ -35,7 +34,7 @@
                 <p id="password_check_success"></p>
             </div>
             {{ form.password }}
-            <input type="password" id="password_check" name="password_check" placeholder="비밀번호를 한번 더 입력해주세요">
+            <input type="password" name="checkpwd" id="checkpwd"style="margin-top: 10px" >
         </div>
         
         <div class="username">
@@ -45,7 +44,6 @@
             </div>
             <div class="username_input">
                 {{ form.username }}
-                <button type="button" id="username_check">중복확인</button>
             </div>
         </div>
         
