@@ -178,4 +178,6 @@ SECURE_SSL_REDIRECT = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_HOST = 'Beewalk.com'
 
+
+
 # python manage.py runserver_plus 0.0.0.0:8000 --cert-file "C:\Program Files\OpenSSL-Win64\bin\cert.pem" --key-file "C:\Program Files\OpenSSL-Win64\bin\key.pem"
