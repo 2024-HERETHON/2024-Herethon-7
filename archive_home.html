@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>나다움 아카이브</title>
+    <style>body {
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        font-family: "Pretendard Variable", Pretendard, -apple-system,
+          BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+          "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+          "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      }
+      #archive {
+        width: 393px;
+        height: 692px;
+        margin: 0 auto;
+        background-color: black;
+      }
+      .top {
+        text-align: left;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      #title {
+        color: #fff;
+        font-family: Pretendard;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        padding-top: 50px;
+        padding-bottom: 16px;
+        margin: 0;
+      }
+      #info {
+        color: #fff;
+        font-family: Pretendard;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        margin: 0;
+      }
+      .middle {
+        position: relative;
+        width: 393px;
+        height: 590px;
+      }
+      
+      .middle button {
+        display: flex;
+      
+        position: relative;
+        border: none;
+        background: none;
+        outline: none;
+        cursor: pointer;
+        padding: 0;
+      }
+      .middle img {
+        z-index: 0;
+      }
+      .middle p {
+        z-index: 1;
+        position: absolute;
+        top: 50px;
+        left: 60px;
+      
+        color: #000;
+        font-family: Pretendard;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+      #placebtn {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+      #musicbtn {
+        position: absolute;
+        bottom: 170px;
+        right: 70px;
+      }
+      #relationbtn {
+        position: absolute;
+        bottom: 10px;
+      }
+      #placep {
+        display: inline-block;
+        transform: rotate(15deg);
+        position: absolute;
+        top: 50px;
+        left: 70px;
+      }
+      #relationp {
+        display: inline-block;
+        transform: rotate(-15deg);
+        position: absolute;
+        top: 50px;
+        left: 60px;
+      }
+      #musicp {
+        display: inline-block;
+        transform: rotate(-5deg);
+        position: absolute;
+        top: 55px;
+        margin-top: 20px;
+        left: 60px;
+        z-index: 1;
+        position: absolute;
+        color: #000;
+        font-family: Pretendard;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-decoration: none;
+      }</style>
+</head>
+<body id="archive">
+<div class="top">
+    <h1 id="title">나다움 아카이브</h1>
+    <p id="info">BeeWalk와 함께 걸으며 나다움을 모아봐요.<br/>나와 한층 더 친해질 수 있을 거예요</p>
+</div>
+<div class="middle">
+    <button id="musicbtn">
+        <img src="{% static 'img/Polygon3.svg' %}" alt="musicbtn" />
+        <a id="musicp" href="{% url 'archive_list' %}">음악</a>
+    </button>
+    <button id="relationbtn">
+        <img src="{% static 'img/Polygon1.svg' %}" alt="relationbtn" />
+        <p id="relationp">관계</p>
+    </button>
+    <button id="placebtn">
+        <img src="{% static 'img/Polygon2.svg' %}" alt="placebtn" />
+        <p id="placep">장소</p>
+    </button>
+</div>
+    
+</div>
+    
+</body>
+</html>
