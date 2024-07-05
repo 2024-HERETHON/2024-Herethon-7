@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <link rel="stylesheet" href="../css/splash1.css" />
+  <link
+    rel="stylesheet"
+    as="style"
+    crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+  />
+  <style>
+    body {
+      box-sizing: border-box;
+      width: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      font-family: "Pretendard Variable", Pretendard, -apple-system,
+        BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+        "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    }
+    img {
+      padding-top: 291px;
+    }
+  </style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section>
+      <img src="../img/Group 7.svg" alt="logo" />
+    </section>
+
+    <script>
+      function redirectToOtherPage() {
+        // 1초 후에 다른 URL로 이동
+        setTimeout(function () {
+          window.location.href = "../html/splash2.html"; // 여기에 이동할 URL을 입력하세요
+        }, 1000); // 1초를 밀리초로 변환하여 지정
+      }
+
+      redirectToOtherPage(); // 함수 호출
+    </script>
+  </body>
+</html>
