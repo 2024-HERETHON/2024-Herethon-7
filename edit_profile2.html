@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>프로필 편집</title>
+    <style>
+      body {
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        font-family: "Pretendard Variable", Pretendard, -apple-system,
+          BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+          "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      }
+      .container {
+        margin-left: 30px;
+        width: 393px;
+      }
+      .preview-img {
+        display: block;
+        margin: 20px auto;
+        max-width: 100px;
+        max-height: 100px;
+        border-radius: 50%;
+      }
+      #title {
+        color: #f7f7f1;
+        font-family: Pretendard;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        padding-top: 50px;
+      }
+      label {
+        color: #f7f7f1;
+        font-family: Pretendard;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        margin-bottom: 5px;
+      }
+      .form-control {
+        display: flex;
+        padding: 20px;
+        width: 321px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        align-self: stretch;
+        border-radius: 20px;
+        background: #f7f7f1;
+        border: none; /* 테두리 제거 */
+        outline: none; /* 포커스 시 외곽선 제거 */
+        color: #b1b1b1;
+        font-family: Pretendard;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+      }
+      .preview-img {
+        display: flex;
+        width: 90px;
+        height: 90px;
+        justify-content: center;
+        align-items: center;
+      }
+      #save {
+        display: flex;
+        width: 361px;
+        height: 69px;
+        padding: 20px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex-shrink: 0;
+        border-radius: 20px;
+        background: #b1b1b1;
+        color: #fff;
+        font-family: Pretendard;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        position: absolute;
+        top: 700px;
+      }
+      #save:hover {
+        background: #ff7f50; /* 마우스를 올렸을 때 주황색 배경색으로 변경 */
+      }
+      #id_profile_img.form-control {
+        padding: 0; /* 패딩을 추가하여 내용물이 간격을 더 가질 수 있도록 함 */
+        width: 80px; /* 너비를 확대 */
+        height: 25px; /* 높이를 더 크게 설정 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="title">프로필 편집</h1>
+      <form method="POST" enctype="multipart/form-data">
+        {% if request.user.profile_img %}
+        <div>
+          <img
+            id="current-profile-img"
+            src="{{ request.user.profile_img.url }}"
+            alt="Current Profile Image"
+            class="preview-img"
+          />
+        </div>
+        {% endif %}
+        <div>
+          <img
+            id="preview-profile-img"
+            src="#"
+            alt="New Profile Image Preview"
+            class="preview-img"
+            style="display: none"
+          />
+        </div>
+        {% csrf_token %} {{ form.as_p }}
+        <button id="save" type="submit" class="btn btn-primary">
+          저장하기
+        </button>
+      </form>
+    </div>
+
+    <script>
+      document
+        .querySelector("#id_profile_img")
+        .addEventListener("change", function (event) {
+          const [file] = event.target.files;
+          if (file) {
+            const preview = document.querySelector("#preview-profile-img");
+            preview.src = URL.createObjectURL(file);
+            preview.style.display = "block";
+
+            // Hide the current profile image if a new one is selected
+            const currentImg = document.querySelector("#current-profile-img");
+            if (currentImg) {
+              currentImg.style.display = "none";
+            }
+          }
+        });
+    </script>
+  </body>
+</html>
