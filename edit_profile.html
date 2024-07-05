@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>프로필 편집</title>
+    <style>
+      .preview-img {
+        display: block;
+        margin: 20px auto;
+        max-width: 100px;
+        max-height: 100px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>프로필 편집</h1>
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %} {{ form.as_p }} {% if request.user.profile_img %}
+        <div>
+          <img
+            id="current-profile-img"
+            src="{{ request.user.profile_img.url }}"
+            alt="Current Profile Image"
+            class="preview-img"
+          />
+        </div>
+        {% endif %}
+        <div>
+          <img
+            id="preview-profile-img"
+            src="#"
+            alt="New Profile Image Preview"
+            class="preview-img"
+            style="display: none"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">저장하기</button>
+      </form>
+    </div>
+
+    <script>
+      document
+        .querySelector("#id_profile_img")
+        .addEventListener("change", function (event) {
+          const [file] = event.target.files;
+          if (file) {
+            const preview = document.querySelector("#preview-profile-img");
+            preview.src = URL.createObjectURL(file);
+            preview.style.display = "block";
+
+            // Hide the current profile image if a new one is selected
+            const currentImg = document.querySelector("#current-profile-img");
+            if (currentImg) {
+              currentImg.style.display = "none";
+            }
+          }
+        });
+    </script>
+  </body>
+</html>
