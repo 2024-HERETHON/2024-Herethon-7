@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <link rel="stylesheet" href="../css/splash2.css" />
+  <link
+    rel="stylesheet"
+    as="style"
+    crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+  />
+  <style>
+    body {
+      box-sizing: border-box;
+      width: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      font-family: "Pretendard Variable", Pretendard, -apple-system,
+        BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+        "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    }
+
+    #p1 {
+      padding-top: 70px;
+      color: #fff;
+      font-family: Pretendard;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+    }
+    .ment {
+      display: flex; /* Flexbox 사용 */
+      flex-direction: row; /* 자식 요소들을 가로로 나열 */
+    }
+
+    #p2,
+    #p3 {
+      margin: 0; /* 문단의 기본 여백 제거 */
+    }
+
+    #p2,
+    #p3,
+    #img {
+      display: inline; /* 인라인 요소로 만들어 한 줄에 배치 */
+    }
+
+    #p2,
+    #p3,
+    #p4 {
+      color: #fff;
+      text-align: center;
+      font-family: Pretendard;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+      margin: 0;
+    }
+    #p2 {
+      padding-right: 10px;
+    }
+    .middle {
+      width: 393px;
+      height: 480px;
+      position: relative;
+    }
+    .middle button {
+      border: none;
+      background: none;
+      outline: none;
+      cursor: pointer;
+      padding: 0;
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    #placebtn {
+      position: absolute;
+      bottom: 0;
+      left: 200px;
+    }
+    #musicbtn {
+      position: absolute;
+      bottom: 200px;
+      left: 150px;
+      animation: dropDown 1s ease forwards;
+    }
+    #relationbtn {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+    }
+    @keyframes dropDown {
+      0% {
+        transform: translateY(-200%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="p1">환영합니다!</p>
+    <div class="ment">
+      <p id="p2">이제부터</p>
+      <img id="img" src="../img/Beewalk.svg" alt="Beewalk" />
+      <p id="p3">와 함께</p>
+    </div>
+    <p id="p4">건강한 나다움 찾기를 시작해요.</p>
+    <div class="middle">
+      <button id="placebtn">
+        <img src="../img/Polygon 2.svg" alt="placebtn" />
+      </button>
+      <button id="relationbtn">
+        <img src="../img/Polygon 1.svg" alt="relationbtn" />
+      </button>
+      <button id="musicbtn">
+        <img src="../img/Polygon 3.svg" alt="musicbtn" />
+      </button>
+    </div>
+    <script>
+      function redirectToOtherPage() {
+        // 1초 후에 다른 URL로 이동
+        setTimeout(function () {
+          window.location.href = "../html/splash3.html"; // 여기에 이동할 URL을 입력하세요
+        }, 3000); // 1초를 밀리초로 변환하여 지정
+      }
+
+      // 함수 호출
+      redirectToOtherPage();
+    </script>
+  </body>
+</html>
