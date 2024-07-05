@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+    <title>히스토리</title>
+    <style>
+        body {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+#history {
+  width: 393px;
+  height: 692px;
+  margin: 0 auto;
+  background-color: black;
+}
+.topMiddle {
+  overflow-y: scroll;
+  height: 690px;
+}
+.topMiddle::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera 브라우저용 */
+}
+.top {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+#title {
+  text-align: left;
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-top: 50px;
+  padding-bottom: 16px;
+  margin: 0;
+}
+#km {
+  text-align: left;
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+  width: 180px;
+  display: inline-block;
+  padding-bottom: 16px;
+}
+
+.dateBtn {
+  display: inline-flex;
+  padding: 10px 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #fff;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+#datePicker {
+  z-index: 2;
+  display: flex;
+  position: relative;
+  border-radius: 12px;
+  background: linear-gradient(0deg, #383838 0%, #383838 100%),
+    rgba(179, 179, 179, 0.82);
+  background-blend-mode: color-dodge, normal;
+  /* Material Blur */
+  backdrop-filter: blur(25px);
+  width: 80px; /* 조정 가능한 너비 */
+  height: 90px;
+  padding: 10px;
+  overflow: hidden;
+  color: var(--Labels-Primary, #000);
+  font-feature-settings: "clig" off, "liga" off;
+  text-overflow: ellipsis;
+  font-family: Pretendard;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 22px; /* 129.412% */
+  letter-spacing: -0.43px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  width: 30px;
+}
+
+.input-container button {
+  padding: 5px;
+  color: #fff;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.input-container input {
+  width: 50px;
+  margin: 0 10px;
+  text-align: center;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+#applyBtn {
+  width: 90px;
+  height: 32px;
+  padding: 10px 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  color: #fff;
+  border-radius: 10px;
+  background: #000;
+  font-family: Pretendard;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+}
+
+#graph {
+  width: 361px;
+  height: 160px;
+  background-color: #fff;
+}
+ul {
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 300px; /* 요소의 높이 설정 */
+}
+
+li {
+  display: flex;
+  width: 361px;
+  padding-bottom: 16px;
+  position: relative;
+  overflow: hidden; /* 이미지가 넘치지 않고 짤리도록 설정 */
+}
+
+li img {
+  width: 100%; /* 이미지 너비를 부모 요소의 너비에 맞추기 */
+  max-width: 361px; /* 최대 너비 지정 */
+  height: 143px;
+  border-radius: 20px;
+  
+}
+
+#howLongTake {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+#whatDate {
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  top: 25px;
+  left: 10px;
+}
+#longAndTime {
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  position: absolute;
+  bottom: 30px;
+  left: 10px;
+}
+.navigation {
+  height: 6rem;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+form{
+    display: inline-flex;
+padding: 10px 15px;
+justify-content: center;
+align-items: center;
+border-radius: 12px;
+border: 1px solid #FFF;
+background: rgba(255, 255, 255, 0.10);
+color: #FFF;
+}
+#month-select, #year-select{
+    border: none;
+    background: none;
+    color: #FFF;
+}
+option{
+    color:#000;
+}
+    </style>
+  </head>
+  <body>
+      <section id="history">
+        <div class="topMiddle">
+          <div class="top">
+            <p id="title">히스토리</p>
+            <p id="km">총 {{ total_distance|floatformat:1 }}km</p>
+            <div class="selectDate">
+                <form method="get" action="{% url 'Historyapp:record_list' %}">
+                    <label id="yearSelect" for="year-select"></label>
+                    <select id="year-select" name="year">
+                            <option value=2024 {% if i == year %}selected{% endif %}>2024년</option>
+                    </select>
+                    <label id="monthSelect" for="month-select"></label>
+                    <select id="month-select" name="month">
+                            <option value=1 {% if i == month %}selected{% endif %}>1월</option>
+                        <option value=2 {% if i == month %}selected{% endif %}>2월</option>
+                        <option value=3 {% if i == month %}selected{% endif %}>3월</option>
+                        <option value=4 {% if i == month %}selected{% endif %}>4월</option>
+                        <option value=5 {% if i == month %}selected{% endif %}>5월</option>
+                        <option value=6 {% if i == month %}selected{% endif %}>6월</option>
+                        <option value=7 {% if i == month %}selected{% endif %}>7월</option>
+                        <option value=8 {% if i == month %}selected{% endif %}>8월</option>
+                        <option value=9 {% if i == month %}selected{% endif %}>9월</option>
+                        <option value=10 {% if i == month %}selected{% endif %}>10월</option>
+                        <option value=11 {% if i == month %}selected{% endif %}>11월</option>
+                        <option value=12 {% if i == month %}selected{% endif %}>12월</option>
+                    </select>
+                    
+                    <button id="submit" type="submit">확인</button>
+                </form>
+            </div>
+            
+
+              
+            
+          <div id="graph">
+
+          </div>
+          </div>
+          <div class="middle">
+            
+            <ul>
+                {% for record in records %}
+                <li>
+                    <p id="howLongTake">석촌호수 둘레길만큼 걸었어요!</p>
+                    <p id="whatDate">{{ record.date|date:"Y.m.d" }}</p>
+                    <p id="longAndTime">{{ record.total_distance|floatformat:1 }}km · 시간: {{ record.total_time|floatformat:1 }}초</p>
+                    
+                    {% if record.certification %}
+                        <img src="{{ record.certification.walk_image.url }}" alt="Certification Image">
+                    {% else %}
+                        <p>이미지가 없습니다.</p>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+            
+                
+          </div>
+          
+          
+        </div>
+      </section>
+    </div>
