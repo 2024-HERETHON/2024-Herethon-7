@@ -1,0 +1,133 @@
+<html lang="ko">
+  <link rel="stylesheet" href="../css/splash4.css" />
+  <link
+    rel="stylesheet"
+    as="style"
+    crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+  />
+  <style>
+    body {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+section {
+  width: 393px;
+  height: 848px;
+  overflow: hidden;
+}
+#title {
+  padding-top: 50px;
+  padding-left: 16px;
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  margin: 0;
+}
+
+#content {
+  margin-top: 150px;
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 20px;
+  line-height: 2;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: marquee 30s linear infinite; /* 속도를 느리게 조정 (예: 30초) */
+
+  /* Make the text width longer than the viewport */
+  width: max-content;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+#o {
+  position: fixed;
+  top: 710px;
+  margin-left: 160px;
+}
+#startbtn {
+  position: fixed;
+  top: 752px;
+  margin-left: 16px;
+}
+button {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+}
+  </style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section>
+      <p id="title">
+        나다움 질문으로<br />
+        나와 한층 더<br />
+        친해지기
+      </p>
+      <p id="content">
+        올 한 해 반드시 이루고 싶은 목표는 무엇인가요? 🚩 내가 좋아하는 사람의
+        모습은? 여름함께하는 물건은 무엇인가요? 🎧 선호하는 음악 장르는
+        무엇인가요? 내가 가장 좋아하는 장소는 어디인가요? 😎 내가 기억하는
+        여름의 냄새는 내가 기억 ✨ 내가 기억하는 올해의 나는 어떤 사람인가요?
+        ⛅<br />
+        🎧 선호하는 음악 장르는 무엇인가요? 내가 가장 좋아하는 장소는
+        어디인가요? 😎 내가 기억하는 여름의 냄새는 내가 기억 ✨ 내가 기억하는
+        올해의 나는 어떤 사람인가요? ⛅ 올 한 해 반드시 이루고 싶은 목표는
+        무엇인가요? 🚩 내가 좋아하는 사람의 모습은? 여름함께하는 물건은
+        무엇인가요?<br />
+        여름함께하는 물건은 무엇인가요? 🎧 선호하는 음악 장르는 무엇인가요? 내가
+        가장 좋아하는 장소는 어디인가요? 😎 내가 기억하는 여름의 냄새는 내가
+        기억 ✨ 내가 기억하는 올해의 나는 어떤 사람인가요? ⛅ 올 한 해 반드시
+        이루고 싶은 목표는 무엇인가요? 🚩 내가 좋아하는 사람의 모습은?<br />
+        😎 내가 기억하는 여름의 냄새는 내가 기억 ✨ 내가 기억하는 올해의 나는
+        어떤 사람인가요? ⛅ 올 한 해 반드시 이루고 싶은 목표는 무엇인가요? 🚩
+        내가 좋아하는 사람의 모습은? 여름함께하는 물건은 무엇인가요? 🎧 선호하는
+        음악 장르는 무엇인가요? 내가 가장 좋아하는 장소는 어디인가요?
+      </p>
+      <img id="o" src="../img/Group 9 (1).svg" />
+      <button id="startbtn">
+        <img src="../img/start.png" alt="startbtn" />
+      </button>
+    </section>
+    <script>
+      function redirectToOtherPage() {
+        // 1초 후에 다른 URL로 이동
+        setTimeout(function () {
+          window.location.href = "../html/splash4.html"; // 여기에 이동할 URL을 입력하세요
+        }, 2000); // 1초를 밀리초로 변환하여 지정
+      }
+
+      redirectToOtherPage(); // 함수 호출
+    </script>
+  </body>
+</html>
