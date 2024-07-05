@@ -1,0 +1,161 @@
+<html lang="ko">
+  <link rel="stylesheet" href="../css/splash5.css" />
+  <link
+    rel="stylesheet"
+    as="style"
+    crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+  />
+  <style>
+    body {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+section {
+  width: 393px;
+  height: 848px;
+  overflow: hidden;
+}
+#title {
+  padding-top: 50px;
+  padding-left: 16px;
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  margin: 0;
+}
+#button {
+  margin-top: 20px;
+  padding-left: 72px;
+  position: relative;
+  height: fit-content;
+  padding-top: 50px;
+  padding-right: 0;
+  padding-bottom: 20px;
+  gap: 16px;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+#profileImg {
+  position: absolute;
+  left: 16px;
+  top: 10px;
+}
+#nickname {
+  position: absolute;
+  left: 76px;
+  top: 5px;
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+#question {
+  text-align: left;
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+#imgFile {
+  padding-bottom: 10px;
+}
+#answerWrap {
+  z-index: 2;
+  width: 261px;
+  height: 25px;
+  padding: 20px;
+  border-radius: 20px;
+  background: #dff266;
+  position: absolute;
+  left: 160px;
+  top: 250px;
+}
+#answer {
+  width: 240px;
+
+  text-align: left;
+  margin: 0;
+
+  color: #000;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+#o {
+  position: fixed;
+  top: 710px;
+  margin-left: 160px;
+}
+#startbtn {
+  position: fixed;
+  top: 752px;
+  margin-left: 16px;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+}
+  </style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section>
+      <p id="title">
+        사람들에게<br />
+        나다움을<br />
+        자랑하기
+      </p>
+      <button id="button">
+        <img id="profileImg" src="../img/profile2.svg" alt="profile2" />
+        <p id="nickname">개굴</p>
+        <p id="question">선호하는 음악 장르는 무엇인가요?</p>
+        <img id="imgFile" src="../img/Frame 30.png" alt="img" />
+        <div id="answerWrap">
+          <p id="answer">요즘은 K-pop이 좋다!</p>
+        </div>
+      </button>
+      <p id="content"></p>
+      <img id="o" src="../img/Group 9 (2).svg" />
+      <button id="startbtn">
+        <img src="../img/start.png" alt="startbtn" />
+      </button>
+    </section>
+    <script>
+      function redirectToOtherPage() {
+        // 1초 후에 다른 URL로 이동
+        setTimeout(function () {
+          window.location.href = "../html/splash4.html"; // 여기에 이동할 URL을 입력하세요
+        }, 2000); // 1초를 밀리초로 변환하여 지정
+      }
+
+      redirectToOtherPage(); // 함수 호출
+    </script>
+  </body>
+</html>
