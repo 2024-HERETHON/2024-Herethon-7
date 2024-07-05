@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <link rel="stylesheet" href="../css/splash3.css" />
+  <link
+    rel="stylesheet"
+    as="style"
+    crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+  />
+  <style>
+    body {
+      box-sizing: border-box;
+      width: 100%;
+      margin: 0;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      font-family: "Pretendard Variable", Pretendard, -apple-system,
+        BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+        "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    }
+    section {
+      width: 393px;
+      height: 848px;
+      overflow: hidden;
+      position: relative;
+    }
+    p {
+      padding-top: 50px;
+      padding-left: 16px;
+      color: #fff;
+      font-family: Pretendard;
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+      margin: 0;
+    }
+    #han {
+      position: absolute;
+      top: 320px;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      padding-left: 0;
+    }
+
+    #mapo {
+      position: absolute;
+      top: 470px;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 20px;
+      padding-right: 0;
+    }
+
+    #o {
+      position: fixed;
+      top: 600px;
+      margin-left: 160px;
+    }
+    #startbtn {
+      position: fixed;
+      top: 752px;
+      margin-left: 16px;
+    }
+    button {
+      border: none;
+      background: none;
+      outline: none;
+      cursor: pointer;
+      padding: 0;
+    }
+  </style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <title>Document</title>
+  </head>
+  <body>
+    <section>
+      <p>
+        걷기가<br />
+        재미있어지는<br />
+        곳
+      </p>
+      <div id="han"><img src="{% static 'img/Frame 40.png' %}" /></div>
+      <div id="mapo"><img src="{% static 'img/Frame 41.png' %}" /></div>
+      <img id="o" src="{% static 'img/Group 9.svg' %}" />
+      <button id="startbtn">
+        <img src="{% static 'img/1start.png' %}" alt="startbtn" />
+      </button>
+    </section>
+
+    <script>
+      function redirectToOtherPage() {
+        // 1초 후에 다른 URL로 이동
+        setTimeout(function () {
+          window.location.href = "../splash4"; // 여기에 이동할 URL을 입력하세요
+        }, 2000); // 1초를 밀리초로 변환하여 지정
+      }
+
+      redirectToOtherPage(); // 함수 호출
+    </script>
+  </body>
+</html>

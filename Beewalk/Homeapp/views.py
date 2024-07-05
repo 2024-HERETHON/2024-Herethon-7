@@ -13,7 +13,6 @@ from .forms import FollowForm
 @login_required
 def home(request):
     user = request.user
-    print(user.profile_img)
     end_date = datetime.now()
 
     # 현재 날짜를 기준으로 해당 달의 첫째 날을 계산합니다.
@@ -51,7 +50,8 @@ def home(request):
             Follow.objects.get_or_create(follower=user, following=user_to_follow)
             return redirect('homeapp:home')
     else:
-        form = FollowForm()
+        initial_data = {'user_id': random_user.id if random_user else ''}
+        form = FollowForm(initial=initial_data)
 
     context = {
         'user': user,
@@ -97,3 +97,33 @@ def walking_course_detail(request, pk):
         'course': course,
     }
     return render(request, 'homeapp/walking_course_detail.html', context)
+def splash1(request):
+    # If the user is not authenticated, redirect to the splash page.
+    if not request.user.is_authenticated:
+        return render(request, 'homeapp/splash1.html')
+    # If authenticated, redirect to home page.
+    return redirect('homeapp:home')
+def splash2(request):
+    # If the user is not authenticated, redirect to the splash page.
+    if not request.user.is_authenticated:
+        return render(request, 'homeapp/splash2.html')
+    # If authenticated, redirect to home page.
+    return redirect('homeapp:home')
+def splash3(request):
+    # If the user is not authenticated, redirect to the splash page.
+    if not request.user.is_authenticated:
+        return render(request, 'homeapp/splash3.html')
+    # If authenticated, redirect to home page.
+    return redirect('homeapp:home')
+def splash4(request):
+    # If the user is not authenticated, redirect to the splash page.
+    if not request.user.is_authenticated:
+        return render(request, 'homeapp/splash4.html')
+    # If authenticated, redirect to home page.
+    return redirect('homeapp:home')
+def splash5(request):
+    # If the user is not authenticated, redirect to the splash page.
+    if not request.user.is_authenticated:
+        return render(request, 'homeapp/splash5.html')
+    # If authenticated, redirect to home page.
+    return redirect('homeapp:home')
